@@ -16,20 +16,25 @@ const books = [
     title: "Verity",
     author: "Colleen Hoover",
   },
+  {
+    img: "https://images-na.ssl-images-amazon.com/images/I/41ZLnc34EiL._AC_UL300_SR300,200_.jpg",
+    title: "Verity",
+    author: "Colleen Hoover",
+  },
 ];
-const names = ["nikos", "fenia", "bobos"];
-const newNames = names.map((name) => {
-  return <h1>{name}</h1>;
-});
-
-console.log(newNames);
 
 function BookList() {
-  return <section className="booklist">{newNames}</section>;
+  return (
+    <section className="booklist">
+      {books.map((book) => {
+        return <Book book={book}></Book>;
+      })}
+    </section>
+  );
 }
 
 const Book = (props) => {
-  const { img, title, author } = props; //destructuring of objects
+  const { img, title, author } = props.book; //destructuring of objects
   console.log(props);
   return (
     <article className="book">
