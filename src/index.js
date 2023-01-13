@@ -5,37 +5,32 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 
 //setup vars
-const firstBook = {
-  img: "https://images-na.ssl-images-amazon.com/images/I/81O1oy0y9eL._AC_UL210_SR195,210_.jpg",
-  title: "Where the Crawdads SIng",
-  author: "Delia Owens",
-};
+const books = [
+  {
+    img: "https://images-na.ssl-images-amazon.com/images/I/81O1oy0y9eL._AC_UL210_SR195,210_.jpg",
+    title: "Where the Crawdads SIng",
+    author: "Delia Owens",
+  },
+  {
+    img: "https://images-na.ssl-images-amazon.com/images/I/41ZLnc34EiL._AC_UL300_SR300,200_.jpg",
+    title: "Verity",
+    author: "Colleen Hoover",
+  },
+];
+const names = ["nikos", "fenia", "bobos"];
+const newNames = names.map((name) => {
+  return <h1>{name}</h1>;
+});
 
-const secondBook = {
-  img: "https://images-na.ssl-images-amazon.com/images/I/41ZLnc34EiL._AC_UL300_SR300,200_.jpg",
-  title: "Verity",
-  author: "Colleen Hoover",
-};
+console.log(newNames);
 
 function BookList() {
-  return (
-    <section className="booklist">
-      <Book
-        img={firstBook.img}
-        title={firstBook.title}
-        author={firstBook.author}
-      />
-      <Book
-        img={secondBook.img}
-        title={secondBook.title}
-        author={secondBook.author}
-      />
-    </section>
-  );
+  return <section className="booklist">{newNames}</section>;
 }
 
-const Book = ({ img, title, author }) => {
-  //const { img, title, author } = props; destructuring of objects
+const Book = (props) => {
+  const { img, title, author } = props; //destructuring of objects
+  console.log(props);
   return (
     <article className="book">
       <img src={img} alt="book-cover"></img>
